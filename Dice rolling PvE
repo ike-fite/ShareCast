@@ -1,0 +1,46 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+class Game{
+  public:
+  int dice;
+  int total;
+  
+  void addDice(){
+    for(int i; i < dice; i++){
+      total += rand()%5+1;
+      }
+   }  
+};
+
+int main(){
+  using namespace std;
+  Game comp;
+  Game player;
+  
+  cout << "How many dice do you want the player to roll?\n";
+  cin >> player.dice;
+  
+  cout << "How many dice do you want the computer to roll?\n";
+  cin >> comp.dice;
+  
+  player.addDice();
+  comp.addDice();
+  
+  cout << "Player rolled:\t" << player.total << "\n\n";
+  cout << "Computer rolled:\t << comp.total << "\n\n";
+  
+  if(player.total < comp.total){
+    cout << "Computer wins";
+  }
+  else if(player.total > comp.total){
+    cout << "Player wins";
+  }
+  else{
+    cout << "Computer and Player tied";
+  }
+  
+  cin.ignore();
+  return 0;
+}
